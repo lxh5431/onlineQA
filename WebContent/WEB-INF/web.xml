@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  version="3.0"
+  metadata-complete="true">
+  
+  
+<servlet>
+<servlet-name>loginServlet</servlet-name>
+<servlet-class>
+web.LoginServlet
+</servlet-class>
+<load-on-startup>22</load-on-startup>
+</servlet>
+<servlet-mapping>
+<servlet-name>loginServlet</servlet-name>
+<url-pattern>/LoginServlet</url-pattern>
+</servlet-mapping>
+
+  <servlet>
+<servlet-name>modifyPswServlet</servlet-name>
+<servlet-class>
+web.ModifyPswServlet
+</servlet-class>
+<load-on-startup>22</load-on-startup>
+</servlet>
+<servlet-mapping>
+<servlet-name>modifyPswServlet</servlet-name>
+<url-pattern>/ModifyPswServlet</url-pattern>
+</servlet-mapping>
+
+ <servlet>
+<servlet-name>checkServlet</servlet-name>
+<servlet-class>
+web.CheckServlet
+</servlet-class>
+<load-on-startup>22</load-on-startup>
+</servlet>
+<servlet-mapping>
+<servlet-name>checkServlet</servlet-name>
+<url-pattern>/CheckServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>addQueServlet</servlet-name>
+<servlet-class>
+web.question.AddQueServlet
+</servlet-class>
+<load-on-startup>22</load-on-startup>
+</servlet>
+<servlet-mapping>
+<servlet-name>addQueServlet</servlet-name>
+<url-pattern>/question/AddQueServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>wjNewServlet</servlet-name>
+<servlet-class>
+web.WjNewServlet
+</servlet-class>
+<load-on-startup>22</load-on-startup>
+</servlet>
+<servlet-mapping>
+<servlet-name>wjNewServlet</servlet-name>
+<url-pattern>/WjNewServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>wjUpdateServlet</servlet-name>
+<servlet-class>
+web.WjUpdateServlet
+</servlet-class>
+<load-on-startup>22</load-on-startup>
+</servlet>
+<servlet-mapping>
+<servlet-name>wjUpdateServlet</servlet-name>
+<url-pattern>/WjUpdateServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>wjDelServlet</servlet-name>
+<servlet-class>
+web.WjDelServlet
+</servlet-class>
+<load-on-startup>22</load-on-startup>
+</servlet>
+<servlet-mapping>
+<servlet-name>wjDelServlet</servlet-name>
+<url-pattern>/WjDelServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>newQuesServlet</servlet-name>
+<servlet-class>
+web.question.NewQuesServlet
+</servlet-class>
+<load-on-startup>22</load-on-startup>
+</servlet>
+<servlet-mapping>
+<servlet-name>newQuesServlet</servlet-name>
+<url-pattern>/NewQuesServlet</url-pattern>
+</servlet-mapping>
+
+<filter>
+        <filter-name>CharacterEncoding</filter-name>
+        <filter-class>util.CharacterEncoding</filter-class>
+    </filter>
+    <filter-mapping>
+    	<filter-name>CharacterEncoding</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+  
+    <servlet>
+	<servlet-name>DisplayChart</servlet-name>
+	<servlet-class>org.jfree.chart.servlet.DisplayChart</servlet-class>
+    </servlet>
+	<servlet-mapping>
+		<servlet-name>DisplayChart</servlet-name>
+		<url-pattern>/servlet/DisplayChart</url-pattern>
+	</servlet-mapping>
+  
+</web-app>
