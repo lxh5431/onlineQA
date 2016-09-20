@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 public class Func {
 	
 	/**
-	 * 鏍煎紡鍖栨牱寮�
+	 * 
 	 */
 	private static String formatPattern = "yyyy-MM-dd";
 	
@@ -36,9 +36,10 @@ public class Func {
 	}
 	
 	/**
-	 * 灏嗘棩鏈熸牸寮忓寲涓簓yyy-MM-dd鏍煎紡鐨勫瓧绗︿覆
-	 * @param date 鏃ユ湡
-	 * @return yyyy-MM-dd鏍煎紡鐨勫瓧绗︿覆
+	 *格式化日期 将字符串转换为日期
+	 * @param datestr 日期字符串
+	 * @return 格式化后的日期
+
 	 */
 	public static String formatString(Date date){
 		String datestr = null;
@@ -47,9 +48,10 @@ public class Func {
 	}
 	
 	/**
-	   * 鑾峰彇褰撳墠鏃ユ湡
-	   * @param format 鏍煎紡鍖栨ā鏉�
-	   * @return 鏍煎紡鍖栦箣鍚庣殑鏃ユ湡瀛楃涓�
+	   将日期格式化为yyyy-MM-dd格式的字符串
+	 * @param date 日期
+	 * @return yyyy-MM-dd格式的字符串
+
 	   */
 	  public static String getCurrDate(String format)
 	  {
@@ -58,8 +60,10 @@ public class Func {
 	  }
 	  
 	  /**
-	   * 鑾峰彇褰撳墠鏃ユ湡
-	   * @return 褰撳墠鏃ユ湡瀛楃涓�
+	   * * 获取当前日期
+	   * @param format 格式化模板
+	   * @return 格式化之后的日期字符串
+
 	   */
 	  public static String getCurrDate()
 	  {
@@ -78,10 +82,11 @@ public class Func {
 	  }
 	
 	  /**
-	   * 濡傛灉浼犲叆鐨勫瓧绗︿覆鍙傛暟涓簄ull鎴栬��""锛岄偅涔堣繑鍥�" "锛屽惁鍒欒繑鍥炰紶鍏ョ殑瀛楃涓�
-	   * @param s 浼犲叆鐨勫瓧绗︿覆
-	   * @return 澶勭悊鍚庡瓧绗︿覆
+	   如果传入的字符串参数为null或者""，那么返回" "，否则返回传入的字符串
+	   * @param s 传入的字符串
+	   * @return 处理后字符串
 	   * @throws Exception
+
 	   */
 	   public static String getBlankSpaceString(String s) 
 	   {
@@ -94,10 +99,11 @@ public class Func {
 	   }  
 	  
 	  /**
-	   * 濡傛灉浼犲叆鐨勫瓧绗︿覆鍙傛暟涓簄ull锛岄偅涔堣繑鍥�""锛屽惁鍒欒繑鍥炰紶鍏ョ殑瀛楃涓�
-	   * @param o 浼犲叆鐨勫瓧绗︿覆瀵硅薄
+	    * 如果传入的字符串参数为null，那么返回""，否则返回传入的字符串
+	   * @param o 传入的字符串对象
 	   * @return String
 	   * @throws Exception
+
 	   */
 	   public static String getString(Object o) 
 	   {
@@ -147,9 +153,7 @@ public class Func {
 	   }  
 	   
 	   /**
-	    * 灏嗘暣鏁版暟缁勮В鏋愭垚[ a,b ]杩斿洖锛岃嫢鏁扮粍鐨勯暱搴︿负0锛岄偅涔堣繑鍥�""
-	    * @param a
-	    * @return
+	    
 	    */
 	   public static String arrayToSqlIn(int[] a) 
 	   {
@@ -166,14 +170,7 @@ public class Func {
 	     }
 	     return sR;
 	   } 
-	   
-	   /**
-	    * 鑾峰彇鍥哄畾闀垮害鐨勮嚜澧為暱搴忓彿
-	    * @param curr 褰撳墠宸蹭娇鐢ㄧ殑搴忓彿鏁板��
-	    * @param digit 闀垮害
-	    * @return 鑷闀垮簭鍙�
-	    * @throws Exception
-	    */
+	 
 	   public static String getNewIndex(long curr, int digit) throws Exception
 	   {
 	     long idx = curr + 1;
@@ -189,9 +186,7 @@ public class Func {
 	   }
 	   
 	   /**
-	    * 鍒ゆ柇鏃ユ湡鍚堟硶鎬�
-	    * @param dateStr 鏃ユ湡瀛楃涓� 8浣嶆暟瀛�(yyyyMMdd)
-	    * @return 濡傛灉鏄纭殑鏃ユ湡杩斿洖true锛屽惁鍒欒繑鍥瀎alse
+	    * 
 	    */
 	   public  static boolean checkDate(String dateStr) throws Exception
 	   {
@@ -210,12 +205,7 @@ public class Func {
 	     }
 	   }
 	   
-	   /**
-	    * 璁＄畻瀛楃涓查暱搴� 涓�涓腑鏂囧瓧绗︾殑闀垮害涓�2
-	    * @param str 瀛楃涓�
-	    * @return 瀛楃涓查暱搴�
-	    * @throws Exception
-	    */
+	 
 	   public static int getStringLength(String str) throws Exception
 	   {
 	     String s = getString(str);
@@ -224,13 +214,7 @@ public class Func {
 	     return length;
 	   }
 	   
-	   /**
-	    * 瀛楃涓叉槸鍚︽槸鍥哄畾闀垮害鐨勬暟瀛�
-	    * @param str 瀛楃涓�
-	    * @param length 闀垮害
-	    * @return 濡傛灉鏄繑鍥瀟rue 鍚﹀垯杩斿洖false
-	    * @throws Exception
-	    */
+	 
 	   public static boolean isFixLengthNum(String str,int length) throws Exception
 	   {
 	     String regexNum = "\\d{"+length+"}"; // 姣旇緝鐢ㄦ鍒欒〃杈惧紡
@@ -240,11 +224,7 @@ public class Func {
 	   }
 	   
 	  
-	  /**
-	   * 灏唈ava.util.date杞崲涓簀ava.sql.date
-	   * @param date java.util.date
-	   * @return 杞崲鍚庣殑java.sql.date
-	   */
+	 
 	  public static java.sql.Date toSQLDate(Date date) 
 	  {
 	    if(date==null) return null;
@@ -260,13 +240,7 @@ public class Func {
 	    return sqlDate;
 	  }
 	  
-	  /**
-	   * 璁＄畻2涓棩鏈熶箣闂撮棿闅旂殑骞存暟
-	   * @param startDate 鏃ユ湡1
-	   * @param endDate 鏃ユ湡2
-	   * @return 闂撮殧鐨勫勾鏁�
-	   * @throws Exception
-	   */
+	
 	  public static long getYearsBetween(Date startDate,Date endDate) throws Exception
 	  {
 	    if(startDate == null || endDate == null) return 0;
@@ -276,13 +250,7 @@ public class Func {
 	    return years;
 	  }
 	  
-	  /**
-	   * 淇濈暀灏忔暟
-	   * @param value 鏁板��
-	   * @param scale 灏忔暟浣嶆暟
-	   * @return 鍥涜垗浜斿叆鍚庣殑缁撴灉鍊�
-	   * @throws Exception
-	   */
+	
 	  public static double changeDecimal(double value, int scale) throws Exception
 	  {
 	    if(scale < 0)
@@ -295,11 +263,7 @@ public class Func {
 	    return num;
 	  }	
 	
-	/**
-	 * 鑾峰彇鐢ㄦ埛鐪熷疄IP
-	 * @param request
-	 * @return
-	 */
+	
 	public static String getIpAddr(HttpServletRequest request) { 
 	     String ip = request.getHeader("x-forwarded-for"); 
 	    if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) { 

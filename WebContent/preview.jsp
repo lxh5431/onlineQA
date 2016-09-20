@@ -6,6 +6,8 @@
 <%@page import="java.sql.*"%>
 <%@page import="java.util.*"%>
 <%
+    response.setCharacterEncoding("UTF-8");
+	request.setCharacterEncoding("UTF-8");
 	//从请求当中获取到ID，根据ID查询出题目和内容
 	String id = request.getParameter("oid");
 	int oid = Integer.parseInt(id);
@@ -19,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link type="text/css" rel="stylesheet" href="/vote/view/css/main.css" />
+		<link type="text/css" rel="stylesheet" href="/css/main.css" />
 		<title>问卷管理系统</title>
 <script type="text/javascript">
 	   function btnOK_onclick(myForm){

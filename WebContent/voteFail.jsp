@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"   pageEncoding="UTF-8"%>
 <%@page import="util.*"%>
 <%
+    response.setCharacterEncoding("UTF-8");
+	request.setCharacterEncoding("UTF-8");
 	//错误提示信息
 	String errMsg = Func.getString(request.getParameter("errMsg"));
 	//System.out.println("errMsg "+errMsg);

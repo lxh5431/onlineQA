@@ -5,9 +5,8 @@
   <%@ page import="service.impl.*"%>
   <%@ page import="util.MyTool" %>
   <%@ page import="web.question.*" %>
-  <%@ page import="entity.Objects"%>
-<% 
-ObjectsService objectsService=new ObjectsServiceImpl();
+<%@page import="java.sql.*"%>
+<%   ObjectsService objectsService=new ObjectsServiceImpl();
 ReplayService replayService=new ReplayServiceImpl();
 	String id = request.getParameter("oid");
 	String qseq = request.getParameter("seq");

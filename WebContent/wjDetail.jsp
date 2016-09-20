@@ -21,7 +21,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>问卷管理系统</title>
-		<link type="text/css" rel="stylesheet" href="/vote/view/css/main.css" />
+		<link type="text/css" rel="stylesheet" href="/css/main.css" />
 <script type="text/javascript">
 var action = "<%=request.getContextPath()%>"+"/servlet/ObjectServlet";
 //提交

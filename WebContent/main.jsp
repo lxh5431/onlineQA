@@ -4,8 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>main</title>
 <base target="_self">
-<link rel="stylesheet" type="text/css" href="skin/css/base.css" />
-<link rel="stylesheet" type="text/css" href="skin/css/main.css" />
+<link rel="stylesheet" type="text/css" href="css/main.css" />
 <SCRIPT src="js/Clock.js" type=text/javascript></SCRIPT>
 </head>
 <body leftmargin="8" topmargin='8'>

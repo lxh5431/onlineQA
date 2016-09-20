@@ -1,4 +1,15 @@
 ﻿<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@include file="check.jsp"%>
+<%@page import="util.*"%>
+
+<%
+	String userName = (String)session.getAttribute("userName");
+	String oldpassword = Func.getString(request.getAttribute("oldpassword"));
+    boolean isSame = true;
+    if(request.getAttribute("isSame")!=null)
+    	isSame = (Boolean)request.getAttribute("isSame");
+    //System.out.println(isSame);
+%>
 <html>
 	<head>
 		<title>问卷管理系统</title>
@@ -128,14 +139,14 @@ function back() {
 <body topmargin="2">
 <br/><br/>
 		<form action="" name="fm" method="post">
-		    <input type="hidden" name="username" value=userName />
+		    <input type="hidden" name="userName" value="<%=userName%>" />
 			<table width="500" border="0" align="center" cellpadding="2"  cellspacing="1" id="myTable" class="tab">
 				<tr>
 					<td width="60px">
 						原密码：
 					</td>
 					<td>
-						<input value="oldpassword" type="password" name="oldpassword" onblur="showInfo(this.value)" style="width:150px;" maxLength='20'/>
+						<input value="<%=oldpassword%>" type="password" name="oldpassword" onblur="showInfo(this.value)" style="width:150px;" maxLength='20'/>
 						<%--
 						<input value="<%=oldpassword%>" type="password" name="oldpassword" onblur="checkOldPsw(this.value);" onkeyup="showHint(this.value)" style="width:150px;" maxLength='20'/>
 						<font color='red'><span id="pswError"><%if(!isSame) out.println("原密码输入错误");%></span></font> 

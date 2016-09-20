@@ -7,7 +7,9 @@
   <%@ page import="web.question.*" %>
 <%      ObjectsService objectsService=new ObjectsServiceImpl();
         ReplayService replayService=new ReplayServiceImpl();
-			String id = request.getParameter("oid");
+        response.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");	
+        String id = request.getParameter("oid");
 			String seq = request.getParameter("seq");
 			int oid = Integer.parseInt(id);
 			MyTool tool = new MyTool();
@@ -23,7 +25,7 @@
 <html>
 	<head>
 		<title>问卷管理系统</title>
-		<link type="text/css" rel="stylesheet" href="/vote/view/css/main.css" />
+		<link type="text/css" rel="stylesheet" href="/css/main.css" />
 		<script type="text/javascript">
 var textNumber = 1,sEle;
 	var qvalue=0;
@@ -78,7 +80,7 @@ textNumber--;
 	
 	//返回
 	function back() {
-		window.location.href="./quesList.jsp?oid=<%=oid%>";
+		window.location.href="./wjList.jsp?oid=<%=oid%>";
 	}
 </script>
 </head>
@@ -145,8 +147,8 @@ textNumber--;
 				<tr>
 					<td>
 						<input type="hidden" name="listCnt" id="listCnt" value="" />
-						<input type="hidden" name="oid" id="oid" value="<%=oid%>" />
-						<input type="hidden" name="seq" id="seq" value="<%=seq%>" />
+						<input type="hidden" name="oid"  value="<%=oid%>" />
+						<input type="hidden" name="seq"  value="<%=seq%>" />
 					</td>
 					<td id="td1">
 						<input type="button" value="添加选项 " name="add" onclick="addTextBox(this.form,this.parentNode)" class="btn"/>

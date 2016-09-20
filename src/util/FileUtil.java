@@ -48,13 +48,13 @@ public class FileUtil {
 		br.close();
 		pw.close();
 	}
-	public static void main(String[] args) throws Exception {
+	/*public static void main(String[] args) throws Exception {
 		FileUtil util=new FileUtil();
 		//util.readFile("D:\\test.txt");
 		util.copyFile("D:\\lm.sql",null,"D:\\out.txt","utf-8","<%String id=\"141\"; %>");
 		//util.readFile("D:\\out.txt");
 		//util.readFile("d:\\out.txt","gbk");
 
-	}
+	}*/
 
 }

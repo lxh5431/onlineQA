@@ -40,21 +40,21 @@ public class NewQuesServlet extends HttpServlet {
 		QuestionService qs = new QuestionServiceImpl();
 		SelectorService ss = new SelectorServiceImpl();
 		ObjectsService objectsService=new ObjectsServiceImpl();
-		try{
-		
-		int count = objectsService.getCount(oid);
 		int seq = 1;
 		String content = request.getParameter("content");
-		if(content!=null&&content.trim().length()>0){
-			content=new String(content.getBytes("iso8859-1"),"UTF-8");
-			}
+		
 		String selCount = request.getParameter("listCnt");
 		int listCnt = Integer.parseInt(selCount);
 		String type=request.getParameter("qtype");
 		int qtype = Integer.parseInt(type);
+		int insertQues=0;
+		try{
+		
+		int count = objectsService.getCount(oid);
+	
 		if (count == 0) {
 			//往题目表中插入题目
-			int insertQues = qs.addQues(oid, content, qtype, seq);
+			 insertQues= qs.addQues(oid, content, qtype, seq);
 			if (insertQues > 0) {
 				//插入选项数据
 				for (int i = 1; i <= listCnt; i++) {

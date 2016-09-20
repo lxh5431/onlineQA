@@ -2,11 +2,10 @@
 <html>
 <head>
 <title>menu</title>
-<link rel="stylesheet" href="skin/css/base.css" type="text/css" />
-<link rel="stylesheet" href="skin/css/menu.css" type="text/css" />
+
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <script language='javascript'>var curopenItem = '1';</script>
-<script language="javascript" type="text/javascript" src="skin/js/frame/menu.js"></script>
+<script language="javascript" type="text/javascript" src="js//menu.js"></script>
 <base target="main" />
 </head>
 <body target="main">
@@ -24,6 +23,13 @@
                 <div class='flrct'> <a href='./wjNew.jsp' target='main'><img src='image/gtk-sadd.png' alt='创建问卷' title='创建问卷'/></a> </div>
               </div>
             </li>
+             <li>
+              <div class='items'>
+                <div class='fllct'><a href='./wjpost.jsp' target='main'>问卷调查</a></div>
+                <div class='flrct'> <a href='./preview.jsp' target='main'><img src='image/gtk-sadd.png' alt='问卷调查' title='问卷调查'/></a> </div>
+              </div>
+            </li>
+            
             <%--
             <li><a href='archives.html' target='main'>所有列表</a> </li>
             <li>

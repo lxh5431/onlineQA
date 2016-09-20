@@ -6,6 +6,8 @@
 <%@page import="util.*"%>
 <%@page import="entity.*"%>
 <%
+response.setCharacterEncoding("UTF-8");
+request.setCharacterEncoding("UTF-8");
 	String errMsg="";
 	String replayCode = "";
     String replayIp = Func.getIpAddr(request);

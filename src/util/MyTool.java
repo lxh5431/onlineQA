@@ -93,10 +93,7 @@ public class MyTool {
 	}
 
 	/**
-	 * 鐧惧垎姣旇绠�
-	 * @param p1
-	 * @param p2
-	 * @return
+	 
 	 */
 	public static String percent(double p1, double p2) {
 		String str;
@@ -106,13 +103,13 @@ public class MyTool {
 		else
 			p3=p1 / p2;
 		NumberFormat nf = NumberFormat.getPercentInstance();
-		nf.setMinimumFractionDigits(0);//鎺у埗灏忔暟鐐逛綅鏁�
+		nf.setMinimumFractionDigits(0);//
 		str = nf.format(p3);
 		return str;
 	}
 	
 	/**
-	 * 闄ゆ硶鍙栨暣
+	 *
 	 * @param p1
 	 * @param p2
 	 * @return
@@ -125,13 +122,13 @@ public class MyTool {
 		else
 			p3=p1 / p2;
 		BigDecimal bd = new BigDecimal(p3*100);
-	    bd = bd.setScale(0, BigDecimal.ROUND_HALF_UP);//鍥涜垗浜斿叆澶勭悊
+	    bd = bd.setScale(0, BigDecimal.ROUND_HALF_UP);
 	    r = bd.doubleValue();
 		return r;
 	}
 
-	public static void main(String[] arg) {
+	/*public static void main(String[] arg) {
 		String s = new MyTool().percent(0,0);
 		System.out.println(s);
-	}
+	}*/
 }

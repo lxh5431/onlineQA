@@ -117,16 +117,20 @@ public class JdbcUtil {
 	
 	
 
-	public void free(Connection conn) {
+	public  void free(Statement sta, ResultSet rs) {
 		try {
-			if (conn != null) {
-				conn.close();
+			if (sta != null) {
+				sta.close();
+			}
+			if (rs != null) {
+				rs.close();
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+
+	
 
 	public void closeAll(Connection conn, Statement stm) {
 		// TODO Auto-generated method stub

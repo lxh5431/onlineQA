@@ -23,7 +23,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>问卷管理系统</title>
-<link type="text/css" rel="stylesheet" href="/vote/view/css/main.css" />
+<link type="text/css" rel="stylesheet" href="/css/main.css" />
 <script type="text/javascript">
 //新建题目
 function newQues() {
@@ -40,7 +40,7 @@ function delQues(seq) {
 	
 //返回
 function back() {
-	window.location.href="./wjList.jsp";
+	window.location.href="./quesList.jsp";
 }
 </script>
 </head>
@@ -130,7 +130,7 @@ function back() {
 						<a
 							href="./addQues.jsp?oid=<%=oid%>&seq=<%=ques.getSeq()%>">插入题目</a>
 						<a
-							href="./updateQues.jsp?oid=<%=oid%>&seq=<%=ques.getSeq()%>">编辑题目</a>
+							href="./updateQues.jsp?oid=<%=oid%>&seq=<%=ques.getSeq()%>"></a>
 						<a onclick="delQues(<%=ques.getSeq()%>);" href="#">删除题目</a>
 						<br />
 					</td>
@@ -173,7 +173,7 @@ function back() {
 						<a
 							href="./addQues.jsp?oid=<%=oid%>&seq=<%=ques.getSeq()%>">插入题目</a>
 						<a
-							href="./updateQues.jsp?oid=<%=oid%>&seq=<%=ques.getSeq()%>">编辑题目</a>
+							href="./updateQues.jsp?oid=<%=oid%>&seq=<%=ques.getSeq()%>"></a>
 		      		<a onclick="delQues(<%=ques.getSeq()%>);" href="#">删除题目</a>
 						<br />
 					</td>
@@ -207,7 +207,7 @@ function back() {
 						<a
 							href="./addQues.jsp?oid=<%=oid%>&seq=<%=ques.getSeq()%>">插入题目</a>
 						<a
-							href="./updateQues.jsp?oid=<%=oid%>&seq=<%=ques.getSeq()%>">编辑题目</a>
+							href="./updateQues.jsp?oid=<%=oid%>&seq=<%=ques.getSeq()%>"></a>
 						<a onclick="delQues(<%=ques.getSeq()%>);" href="#">删除题目</a>
 						<br />
 					</td>
@@ -233,7 +233,7 @@ function back() {
 						<a
 							href="./addQues.jsp?oid=<%=oid%>&seq=<%=ques.getSeq()%>">插入题目</a>
 						<a
-							href="./updateQues.jsp?oid=<%=oid%>&seq=<%=ques.getSeq()%>">编辑题目</a>
+							href="./updateQues.jsp?oid=<%=oid%>&seq=<%=ques.getSeq()%>"></a>
 						<a onclick="delQues(<%=ques.getSeq()%>);" href="#">删除题目</a>
 						<br />
 					</td>

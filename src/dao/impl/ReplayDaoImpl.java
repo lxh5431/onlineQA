@@ -45,7 +45,9 @@ public class ReplayDaoImpl implements ReplayDao{
 				{
 					List<Map<Integer,Integer>> list = new ArrayList<Map<Integer,Integer>>();
 					qaCount = getAnswerCount(con,oid,i);
+					System.out.println(qaCount);
 					sCount = getSelCount(con,oid,i);
+					System.out.println(sCount);
 					for(int j=0;j<=sCount;j++)
 					{
 						Map<Integer,Integer> m = new HashMap<Integer,Integer>();
@@ -131,7 +133,7 @@ public class ReplayDaoImpl implements ReplayDao{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}finally{
-				jdbcutil.free(con);
+				jdbcutil.free(stm, rs);
 			}
 //			System.out.println("问题的总数" + qcount);
 			return qcount;
@@ -159,7 +161,8 @@ public class ReplayDaoImpl implements ReplayDao{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}finally{
-				jdbcutil.free(con);
+			jdbcutil.free(stm, rs);
+				
 			}
 //			System.out.println("选项的总数" + qcount);
 			return qcount;
@@ -191,7 +194,7 @@ public class ReplayDaoImpl implements ReplayDao{
 			}finally{
 				jdbcutil.closeAll(con, stm, rs);
 			}
-//			System.out.println("回复人数总数rcount:" + rcount);
+		System.out.println("回复人数总数rcount:" + rcount);
 			return rcount;
 		}
 		
@@ -221,7 +224,7 @@ public class ReplayDaoImpl implements ReplayDao{
 			}finally{
 				jdbcutil.closeAll(stm, rs);
 			}
-//			System.out.println("问题的回答数rcount:" + rcount);
+		System.out.println("问题的回答数rcount:" + rcount);
 			return rcount;
 		}
 		
@@ -251,7 +254,7 @@ public class ReplayDaoImpl implements ReplayDao{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}finally{
-				jdbcutil.free(con);
+				jdbcutil.free(stm, rs);
 			}
 //			System.out.println("问题选项的回答数rcount:" + rcount);
 			return rcount;
@@ -278,7 +281,7 @@ public class ReplayDaoImpl implements ReplayDao{
 				con = jdbcutil.getConnection();
 				defaultAutoCommit = con.getAutoCommit();
 				con.setAutoCommit(false);
-				sql = "insert into _replay(replayCode,replayIp,oid,replayTime,remark) values (?,?,?,?,?)";
+				sql = "insert into replay(replayCode,replayIp,oid,replayTime,remark) values (?,?,?,?,?)";
 				System.out.println(sql);
 				stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 				stmt.setString(1, r.getReplayCode());

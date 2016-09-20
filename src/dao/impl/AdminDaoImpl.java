@@ -110,5 +110,12 @@ public class AdminDaoImpl implements AdminDao {
 		}
 		return flag;
 	}
-	
+	public static void main(String[] args) throws Exception {
+		//AdminDao adminDao=new AdminDaoImpl();
+		//Admin admin=new Admin();
+		//admin.setUsername("lxh");
+		//admin.setPassword("123456");
+		//adminDao.login(admin.getUsername(), admin.getPassword());
+		//adminDao.updatePassword("admin", "789789");
+	}
 }

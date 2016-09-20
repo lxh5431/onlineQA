@@ -42,27 +42,27 @@ public class ChartUtil {
 					false);
 			
 			PiePlot3D plot = (PiePlot3D) chart.getPlot();
-			// 鍥剧墖涓樉绀虹櫨鍒嗘瘮:榛樿鏂瑰紡
+			//图片中显示百分比:默认方式
 			// plot.setLabelGenerator(new
 			// StandardPieSectionLabelGenerator(StandardPieToolTipGenerator.DEFAULT_TOOLTIP_FORMAT));
-			// 鍥剧墖涓樉绀虹櫨鍒嗘瘮:鑷畾涔夋柟寮忥紝{0} 琛ㄧず閫夐」锛� {1} 琛ㄧず鏁板�硷紝 {2} 琛ㄧず鎵�鍗犳瘮渚� ,灏忔暟鐐瑰悗涓や綅
+			// 
 			plot.setLabelGenerator(new StandardPieSectionLabelGenerator("{0}={1}({2})", NumberFormat.getNumberInstance(),new DecimalFormat("0%")));
-			// 鍥句緥鏄剧ず鐧惧垎姣�:鑷畾涔夋柟寮忥紝 {0} 琛ㄧず閫夐」锛� {1} 琛ㄧず鏁板�硷紝 {2} 琛ㄧず鎵�鍗犳瘮渚�
-			//plot.setLegendLabelGenerator(new StandardPieSectionLabelGenerator("{0}={1}({2})"));
-			// 璁剧疆鑳屾櫙鑹蹭负鐧借壊
+			//  图片中显示百分比:自定义方式，{0} 表示选项， {1} 表示数值， {2} 表示所占比例 ,小数点后两位
+          //plot.setLegendLabelGenerator(new StandardPieSectionLabelGenerator("{0}={1}({2})"));
+			// 图例显示百分比:自定义方式， {0} 表示选项， {1} 表示数值， {2} 表示所占比例
 			chart.setBackgroundPaint(Color.white);
-			// 鎸囧畾鍥剧墖鐨勯�忔槑搴�(0.0-1.0)
+			// 
 			plot.setForegroundAlpha(1.0f);
-			// 鎸囧畾鏄剧ず鐨勯ゼ鍥句笂鍦嗗舰(false)杩樻き鍦嗗舰(true)
+			// 
 			plot.setCircular(true);
-			// 瀹氫箟瀛椾綋鏍煎紡
-			Font font = new java.awt.Font("榛戜綋", java.awt.Font.CENTER_BASELINE, 12);
-			Font titleFont = new java.awt.Font("榛戜綋", java.awt.Font.CENTER_BASELINE, 15);
+			// 
+			Font font = new java.awt.Font("黑体", java.awt.Font.CENTER_BASELINE, 12);
+			Font titleFont = new java.awt.Font("黑体", java.awt.Font.CENTER_BASELINE, 15);
 			TextTitle title = new TextTitle(titleName);
 			title.setFont(titleFont);
-			// 璁剧疆瀛椾綋,闈炲父鍏抽敭涓嶇劧浼氬嚭鐜颁贡鐮佺殑,涓嬫柟鐨勫瓧浣�
+			// 
 			//chart.getLegend().setItemFont(font);
-			// 璁剧疆鍥剧墖鐨勫湴鍧�Pie鍥剧殑瀛椾綋
+			// 
 			plot.setLabelFont(font);
 			chart.setTitle(title);
 			

@@ -1,5 +1,5 @@
 ﻿<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@include file="check.jsp"%>
+
 <%@page import="service.*"%>
 <%@page import="service.impl.*"%>
 <%@page import="java.util.*"%>
@@ -127,88 +127,8 @@ function getCheckBoxProperty(checkboxObj,cnt,propertyName)
    return sValue;
 }
 
-//新增问卷
-function Add_onClick()
-{
-	window.self.location="./wjNew.jsp";
-}
 
-//修改问卷
-function Modify_onClick()
-{
-   if(typeof document.fm.radio=='undefined') return;
-   var pkValue=getCheckBoxValue(document.fm.radio);
-   if(pkValue!="")
-	{
-	   var topicCode = pkValue.split(",")[0];
-	   window.self.location="./wjUpdate.jsp?oid="+topicCode;
-	}
-}
 
-//删除问卷
-function Delete_onClick()
-{
-   if(typeof fm.radio=='undefined') return;
-   var pkValue=getCheckBoxValue(fm.radio);
-   if(pkValue!="")
-   {
-	 var topicCode = pkValue.split(",")[0];
-	 var status = pkValue.split(",")[1];
-	 if(confirm("您确实要删除该问卷吗？删除该问卷将删除与之相关的题目\n\n信息，回答信息等，删除后，不能再恢复，请慎重。"))
-	  {
-		 window.location.href="WjDelServlet?oid="+topicCode;
-	  }
-   }
-}
-
-//问卷内容编辑
-function QuestionEdit_onClick()
-{
-   if(typeof document.fm.radio=='undefined') return;
-   var pkValue=getCheckBoxValue(document.fm.radio);
-   if(pkValue!="")
-	{
-	   var topicCode = pkValue.split(",")[0];
-	   var status = pkValue.split(",")[1];
-	   if(status==1 || status==2)
-	   {
-		  if(confirm("问卷发布后，修改问卷将造成以前的回复\n\n数据无效，您确定要编辑问卷内容吗？")){
-			  window.self.location="./quesList.jsp?oid="+topicCode;
-			}
-	   }
-	   if(status==0)
-	   {
-		  window.self.location="./quesList.jsp?oid="+topicCode;
-	   }
-	}
- 	  
-}
-
-//发布
-function publish_onClick(){
-	if(typeof document.fm.radio=='undefined') return;
-	   var pkValue=getCheckBoxValue(document.fm.radio);
-	   if(pkValue!=""){
-		   var topicCode = pkValue.split(",")[0];
-		   var status = pkValue.split(",")[1];
-		   if(status==0)
-		   {
-			  if(confirm("您确定发布该问卷吗？")){
-					window.location.href="./publishAction.jsp?action=publish&oid="+topicCode;
-				} 
-		   }
-		   if(status==1)
-		   {
-			  alert("该问卷已发布，不能重复发布！");
-			  return;
-		   }
-		   if(status==2)
-		   {
-			  alert("该问卷已终止评议，不能发布！");
-			  return;
-		   }
-	   }
-}
 
 //预览
 function preview_onClick(){
@@ -246,37 +166,8 @@ function preview_onClick2(pkValue){
 		}
 }
 
-//预览
-function preview(id){
-	window.open("./preview.jsp?oid="+id);
-}
 
-//撤销
-function cancel_onClick(){
-	if(typeof document.fm.radio=='undefined') return;
-	   var pkValue=getCheckBoxValue(document.fm.radio);
-	   if(pkValue!=""){
-		   var topicCode = pkValue.split(",")[0];
-		   var status = pkValue.split(",")[1];
-		   if(status==1)
-		   {
-			   if(confirm("您确定要撤销吗？")){
-				   window.location.href="./publishAction.jsp?action=unpublish&oid="+topicCode;
-				} 
-		   }
-		   if(status==0)
-		   {
-			  alert("该问卷尚未发布，无需撤销！");
-			  return;
-		   }
-		   if(status==2)
-		   {
-			  alert("该问卷已终止评议，不能撤销！");
-			  return;
-		   }
-	   }
-	
-}
+
 
 //终止评议
 function term_onClick(){
@@ -331,15 +222,7 @@ function showResult_onClick(){
  <td height="26" background="skin/images/newlinebg3.gif">
   <table width="98%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-  <td align="center">
-    <input type='button' class="coolbg np" onClick="Add_onClick();" value='新增问卷' />
-    <input type='button' class="coolbg np" onClick="Modify_onClick();" value='修改问卷' />
-    <input type='button' class='coolbg np' onClick="Delete_onClick();" value='删除问卷' />
-    <input type='button' class='coolbg np' onClick="QuestionEdit_onClick();" value='问卷内容编辑' />
-    <input type='button' class="coolbg np" onClick="publish_onClick();" value='发布' />
-    <input type='button' class="coolbg np" onClick="cancel_onClick();" value='撤销' />
-    <input type='button' class="coolbg np" onClick="term_onClick();" value='终止评议' />
-    <input type='button' class="coolbg np" onClick="preview_onClick();" value='预览' />
+  <td align="center"><input type='button' class="coolbg np" onClick="preview_onClick();" value='预览' />
     <input type='button' class="coolbg np" onClick="showResult_onClick();" value='查看结果' />
  </td>
  </tr>

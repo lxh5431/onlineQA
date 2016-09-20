@@ -52,7 +52,7 @@ web.question.AddQueServlet
 </servlet>
 <servlet-mapping>
 <servlet-name>addQueServlet</servlet-name>
-<url-pattern>/question/AddQueServlet</url-pattern>
+<url-pattern>/AddQueServlet</url-pattern>
 </servlet-mapping>
 
 <servlet>
@@ -102,6 +102,7 @@ web.question.NewQuesServlet
 <servlet-name>newQuesServlet</servlet-name>
 <url-pattern>/NewQuesServlet</url-pattern>
 </servlet-mapping>
+
 
 <filter>
         <filter-name>CharacterEncoding</filter-name>

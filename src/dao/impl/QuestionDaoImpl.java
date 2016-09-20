@@ -54,7 +54,8 @@ public class QuestionDaoImpl implements QuestionDao {
 			Connection conn = null;
 			Statement stm = null;
 			String sql="insert into question(oid,content,qtype,seq) values('"+oid+"','"+content+"','"+qtype+"','"+seq+"')";
-		try{	jdbcutil=new JdbcUtil();
+		try{	
+			jdbcutil=new JdbcUtil();
 			 conn=jdbcutil.getConnection();
 			 stm=conn.createStatement();
 			
@@ -75,8 +76,9 @@ public class QuestionDaoImpl implements QuestionDao {
 		 JdbcUtil jdbcutil=null;
 			Connection conn = null;
 			Statement stm = null;
-			String sql="update question set seq where oid='"+oid+"',seq>'"+seq+"'";
-			try{	jdbcutil=new JdbcUtil();
+			String sql="update question set seq=(seq + 1) where oid='"+oid+"',seq>'"+seq+"'";
+			try{	
+				jdbcutil=new JdbcUtil();
 			 conn=jdbcutil.getConnection();
 			 stm=conn.createStatement();
 			
@@ -125,20 +127,25 @@ public class QuestionDaoImpl implements QuestionDao {
 		 JdbcUtil jdbcutil=null;
 			Connection conn = null;
 			Statement stm = null;
-			String sql="delete from question where oid="+oid;
+			ResultSet rs = null;
+
+			int  quesid=0;
+			String sql="delete  from question where oid=" + oid + " and seq = "+ seq;
 			try{
-				 conn=jdbcutil.getConnection();
+        		jdbcutil=new JdbcUtil();
+				conn=jdbcutil.getConnection();
 				 stm=conn.createStatement();
-				 int  quesid=stm.executeUpdate(sql);
-					return quesid;
+				 quesid=stm.executeUpdate(sql);
+					
 			
 	}catch(Exception e){
 		e.printStackTrace();
-		return 0;
-	} finally{
-	jdbcutil.closeAll(conn,stm);
-	}
 		
+	} finally{
+	jdbcutil.closeAll(conn,stm,rs);
+
+	}
+			return quesid;
 	}
 
 	public int updateQseq(int seq, int oid) {
@@ -149,6 +156,7 @@ public class QuestionDaoImpl implements QuestionDao {
 			String sql="update question set seq=(seq-1) where oid = " + oid+ " and seq > " + seq ;
 
 			try{
+				jdbcutil=new JdbcUtil();
 				 conn=jdbcutil.getConnection();
 				 stm=conn.createStatement();
 				 count=stm.executeUpdate(sql);
@@ -156,7 +164,7 @@ public class QuestionDaoImpl implements QuestionDao {
 			
 	}catch(Exception e){
 		e.printStackTrace();
-	
+		return 0;
 	} finally{
 	jdbcutil.closeAll(conn,stm);
 	}
@@ -190,7 +198,19 @@ public class QuestionDaoImpl implements QuestionDao {
 		
 	}
 
-
+/*public static void main(String[] args) {
+	QuestionDao qi=new QuestionDaoImpl();
+	qi.addQues(22, "恢复数据库", 1, 2);
+  //System.out.println(qi.listQuesByOid(21));
+	//System.out.println(qi.getQuesCount(22));
+	//qi.deleteQues(2, 22);
+	Question question=new Question();
+	question.setContent("不知者无罪，我会努力的");
+	question.setRemark("如果一直吃下去公司欢迎你");
+	
+	qi.updateQseq(2, 22);
+	     
+}*/
 		
 	}
 	

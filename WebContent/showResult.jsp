@@ -1,27 +1,30 @@
-﻿<%@page import="service.impl.ReplayServiceImpl"%>
-<%@page import="service.ReplayService"%>
-<%@page import="service.impl.ObjectsServiceImpl"%>
-<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@include file="check.jsp"%>
+﻿<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%@page import="service.*"%>
+<%@page import="util.*"%>
+<%@page import="java.util.*"%>
 <%@page import="service.*"%>
 <%@page import="service.impl.*"%>
-<%@page import="java.util.*"%>
 <%@page import="entity.*"%>
 <%@page import="entity.Objects"%>
-<%@page import="util.*"%>
-<%
+<%@page import="java.util.*"%>
+
+<%   response.setCharacterEncoding("UTF-8");
+	request.setCharacterEncoding("UTF-8");
 	//从请求当中获取到ID，根据ID查询出题目和内容
 	String id = request.getParameter("oid");
-	System.out.println("oid=" + id);
+	
 	int oid = Integer.parseInt(id);
+	out.println("oid=" + oid);
 	SelectorService ss = new SelectorServiceImpl();
 	ObjectsService objectsService=new ObjectsServiceImpl();
-	ReplayService replayService=new ReplayServiceImpl();
-	Objects ob = objectsService.findPublishedObjectsByID(oid);//查找发布后的问卷
+      ReplayService	replayService=new ReplayServiceImpl();
+	Objects ob =objectsService.findPublishedObjectsByID(oid);//查找发布后的问卷
 	QuestionService qs = new QuestionServiceImpl();
 	List quesList = qs.listQuesByOid(oid);
 	//回复总数
 	int rcount = replayService.getAnswerCount(oid);
+	
 	Map<Integer, List<Map<Integer, Integer>>> allCount = replayService.getAllAnswer(oid);
 	//System.out.println(allCount);
 %>
@@ -29,7 +32,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>问卷管理系统</title>
-		<link type="text/css" rel="stylesheet" href="/vote/view/css/main.css" />
+		<link type="text/css" rel="stylesheet" href="/css/main.css" />
 		<script type="text/javascript">
 		//返回
 		function back() {
@@ -93,11 +96,11 @@
 								for (int j = 0; j < selList.size(); j++) {
 									Selecter sel = (Selecter) selList.get(j);
 									int selseq = sel.getSelseq();
-									count = clist.get(j+1).get(j+1);
+									 count = clist.get(j+1).get(j+1);
 									double count_d = (double) count;
 									double rcount_d = (double)clist.get(0).get(0);
 									double result = count_d / rcount_d;
-									String result_s = MyTool.percent(count_d,rcount_d);
+									String result_s = MyTool.percent(count_d,rcount_d); 
 					%>
 					<table width='600' border='0' class="tab1">
 						<tr>

@@ -1,37 +1,41 @@
 ﻿<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="check.jsp"%>
+<%@page import="java.sql.*"%>
+<%@page import="java.util.*"%>
+<%@page import="service.*"%>
+<%@page import="util.*"%>
+<%@page import="java.util.*"%>
+<%@page import="service.*"%>
+<%@page import="dao.*"%>
+<%@page import="dao.impl.*"%>
 <%@page import="service.*"%>
 <%@page import="service.impl.*"%>
-<%@page import="java.util.*"%>
 <%@page import="entity.*"%>
 <%@page import="entity.Objects"%>
-<%@page import="util.*"%>
-<%@page import="java.sql.*"%>
 <%@page import="org.jfree.data.general.DefaultPieDataset"%>
 <%@page import="java.io.PrintWriter"%>
-<%
+<%   response.setCharacterEncoding("UTF-8");
+	request.setCharacterEncoding("UTF-8");
 	//从请求当中获取到ID，根据ID查询出题目和内容
 	String id = request.getParameter("oid");
-	System.out.println("oid=" + id);
-	int oid = Integer.parseInt(id);
 	
+	int oid = Integer.parseInt(id);
 	SelectorService ss = new SelectorServiceImpl();
 	ObjectsService objectsService=new ObjectsServiceImpl();
-	ReplayService replayService=new ReplayServiceImpl();
-	Objects ob = objectsService.findPublishedObjectsByID(oid);//查找发布后的问卷
+      ReplayDao	replayService=new ReplayDaoImpl();
+	Objects ob =objectsService.findPublishedObjectsByID(oid);//查找发布后的问卷
 	QuestionService qs = new QuestionServiceImpl();
 	List quesList = qs.listQuesByOid(oid);
 	//回复总数
 	int rcount = replayService.getAnswerCount(oid);
-	Map<Integer, List<Map<Integer, Integer>>> allCount = replayService
-			.getAllAnswer(oid);
-	//System.out.println(allCount);
+	Map<Integer, List<Map<Integer, Integer>>> allCount = replayService.getAllAnswer(oid);
+	System.out.println(allCount);
 %>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>问卷管理系统</title>
-		<link type="text/css" rel="stylesheet" href="/vote/view/css/main.css" />
+		<link type="text/css" rel="stylesheet" href="/css/main.css" />
 		<script type="text/javascript">
 		//返回
 		function back() {
@@ -78,7 +82,7 @@
 						Question ques = (Question) quesList.get(i);
 						int seq = ques.getSeq();
 						int qtype = ques.getQtype();
-						List<Map<Integer, Integer>> clist = allCount.get(i + 1);
+						List<Map<Integer, Integer>> clist = allCount.get(i+1);
 						double rcount_d = (double) clist.get(0).get(0);
 						String p = "";
 						String p1 = "";
@@ -89,14 +93,14 @@
 							int count = 0;
 							for (int j = 0; j < selList.size(); j++) {
 								Selecter sel = (Selecter) selList.get(j);
-								int selseq = sel.getSelseq();
-								count = clist.get(j + 1).get(j + 1);
-								double count_d = (double) count;
+							    int selseq = sel.getSelseq();
+							 count= clist.get(j+1).get(j+1);
+					           double count_d = (double) count;
 								double result = MyTool.division(count_d, rcount_d);
-								dataset.setValue(sel.getContent(), new Double(count_d));
+								dataset.setValue(sel.getContent(), new Double(count_d));  
 							}
-							ChartUtil charutil=new ChartUtil();
-  							p = charutil.generatePieChart(dataset, "图"+ (i + 1), 400, 200, null, new PrintWriter(out));
+							
+  							p = ChartUtil.generatePieChart(dataset, "图"+ (i + 1), 400, 200, null, new PrintWriter(out));
 							p1 = request.getContextPath()
 									+ "/servlet/DisplayChart?filename=" + p;
 						}

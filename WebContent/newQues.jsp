@@ -7,7 +7,8 @@
   <%@ page import="web.question.*" %>
 <%           ObjectsService objectsService=new ObjectsServiceImpl();
              ReplayService replayService=new ReplayServiceImpl();
-
+             response.setCharacterEncoding("UTF-8");
+     		request.setCharacterEncoding("UTF-8");
 			String id = request.getParameter("oid");
 			int oid = Integer.parseInt(id);
 			MyTool tool = new MyTool();
@@ -23,7 +24,7 @@
 <html>
 	<head>
 		<title>问卷管理系统</title>
-		<link type="text/css" rel="stylesheet" href="/vote/view/css/main.css" />
+		<link type="text/css" rel="stylesheet" href="/css/main.css" />
 		<script type="text/javascript">
 var textNumber = 1,sEle;
 	var qvalue=0;

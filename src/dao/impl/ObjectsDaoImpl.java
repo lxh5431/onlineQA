@@ -210,17 +210,17 @@ try{
 		 */
 		public  Objects findPublishedObjectsByID(int ID)throws Exception {
 			 JdbcUtil jdbcutil=new JdbcUtil();
-			Connection con = null;
+			Connection conn = null;
 			Statement stm = null;
 			ResultSet rs = null;
 			Objects ob=new Objects();
 			
 			try {
 				String sql = "select oid,title,discribe,state,anonymousFlag from object where oid='" + ID
-				+ "' and state in(1,2)";
+						+ "' and state in(1,2)";
 				System.out.println("查询发布后的主题： "+sql);
-				con=jdbcutil.getConnection();
-				stm=con.createStatement();
+				conn=jdbcutil.getConnection();
+				stm=conn.createStatement();
 				 rs = stm.executeQuery(sql);
 				 while(rs.next()){
 			     int oid = rs.getInt("oid");
@@ -241,9 +241,8 @@ try{
 				e.printStackTrace();
 				return null;
 			} finally {
-				jdbcutil.closeAll(con,stm,rs);
+				jdbcutil.closeAll(conn, stm, rs);
 			}
-
 		}
 
 		
